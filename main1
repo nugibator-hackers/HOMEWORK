@@ -1,0 +1,30 @@
+def cago(n, arr1, m, arr2):
+    count = 0
+    i = 0
+    arr1 = sorted(arr1)
+    for j in range(len(arr1)):
+        while i < len(arr2):
+            if arr2[i] >= arr1[j]:
+                arr1.pop(j)
+                arr2.pop(i)
+                count += 1
+                i = 0
+            else:    
+                i += 1    
+
+
+             
+    return count
+
+
+
+def main():
+    n = int(input())
+    arr1 = [int(x) for x in input().split()]
+    m = int(input())
+    arr2 = [int(x) for x in input().split()]
+    print(cago(n, arr1, m, arr2))
+
+
+if __name__ == '__main__':
+    main()
