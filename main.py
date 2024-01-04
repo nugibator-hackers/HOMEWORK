@@ -1,19 +1,28 @@
-def joseph(n, arr) -> int:
-    """Рассчитать количество платформ."""
-    k = 0
-    sum = 0
+def cago(n, arr1, m, arr2):
     count = 0
-    for i in arr:
-        sum += i
-        k += 1
-        if sum == (k * k - k) / 2:
-                count += 1      
+    arr2 = sorted(arr2, reverse=True)
+    min_number = min(arr1)
+    if n > m:
+        for i in range(m):
+            if arr2[i] >= min_number:
+                count += 1
+    elif n < m: 
+        for i in range(n):
+            if arr2[i] >= min_number:
+                count += 1           
+    
+    
     return count
- 
-def main() -> None:
+
+
+
+def main():
     n = int(input())
-    arr: list = [int(array_counter) for array_counter in input().split(' ')]
-    print(joseph(n, arr))
- 
-if __name__ == '__main__': 
+    arr1 = [int(x) for x in input().split()]
+    m = int(input())
+    arr2 = [int(x) for x in input().split()]
+    print(cago(n, arr1, m, arr2))
+
+
+if __name__ == '__main__':
     main()
